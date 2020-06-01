@@ -1,4 +1,4 @@
-package exam.Sets;
+package exam;
 
 import java.util.*;
 

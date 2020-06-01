@@ -1,6 +1,5 @@
-package tests;
+package exam;
 
-import exam.IndexSort.IndexSort;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

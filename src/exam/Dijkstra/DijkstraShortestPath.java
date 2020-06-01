@@ -36,8 +36,6 @@ public class DijkstraShortestPath {
     }
 
     public static int findShortest(AdaptablePQ pq, Vertex a, Vertex b, int[] dist) {
-        int shortest = 0;
-
         while(!pq.isEmpty()) {
             VertexNumPair v = pq.removeMin();
 

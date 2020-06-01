@@ -1,5 +1,4 @@
-package tests;
-import exam.Sets.MySet;
+package exam;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

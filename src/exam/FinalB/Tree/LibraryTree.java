@@ -1,4 +1,4 @@
-package exam.FinalB;
+package exam.FinalB.Tree;
 
 import java.util.*;
 

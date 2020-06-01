@@ -1,4 +1,4 @@
-package exam.IndexSort;
+package exam;
 
 /**
  * Sorts the indices of the array based on the corresponding value in alphabetical order.

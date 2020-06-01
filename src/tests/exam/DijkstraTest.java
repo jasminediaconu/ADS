@@ -1,4 +1,4 @@
-package tests;
+package exam;
 
 import exam.Dijkstra.DijkstraShortestPath;
 import exam.Dijkstra.Graph;
