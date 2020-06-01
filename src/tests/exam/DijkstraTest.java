@@ -1,6 +1,5 @@
 package exam;
 
-import exam.Dijkstra.DijkstraShortestPath;
 import exam.Dijkstra.Graph;
 import org.junit.jupiter.api.Test;
 
