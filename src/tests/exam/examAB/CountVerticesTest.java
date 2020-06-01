@@ -1,6 +1,7 @@
 package exam.examAB;
 
-import exam.FinalA.Graph;
+import exam.FinalA.Graph.Graph;
+import exam.FinalA.Graph.CountVertices;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,10 +11,10 @@ public class CountVerticesTest {
     public void testNullA() {
         Graph g = new Graph();
         Graph.Vertex v = null;
-        Assertions.assertEquals(0, exam.FinalA.CountVertices.countVertices(g, v));
+        Assertions.assertEquals(0, CountVertices.countVertices(g, v));
         g = null;
         v = new Graph.Vertex(1);
-        Assertions.assertEquals(0, exam.FinalA.CountVertices.countVertices(g, v));
+        Assertions.assertEquals(0, CountVertices.countVertices(g, v));
     }
 
     @Test
@@ -29,10 +30,10 @@ public class CountVerticesTest {
         g.addVertex(y);
         g.addEdge(v, w);
         g.addEdge(w, y);
-        Assertions.assertEquals(3, exam.FinalA.CountVertices.countVertices(g, v));
-        Assertions.assertEquals(3, exam.FinalA.CountVertices.countVertices(g, w));
-        Assertions.assertEquals(3, exam.FinalA.CountVertices.countVertices(g, y));
-        Assertions.assertEquals(1, exam.FinalA.CountVertices.countVertices(g, x));
+        Assertions.assertEquals(3, CountVertices.countVertices(g, v));
+        Assertions.assertEquals(3, CountVertices.countVertices(g, w));
+        Assertions.assertEquals(3, CountVertices.countVertices(g, y));
+        Assertions.assertEquals(1, CountVertices.countVertices(g, x));
     }
 
     @Test

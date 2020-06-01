@@ -15,13 +15,13 @@ public class MySet extends HashSet<String> {
     public MySet union(MySet that) {
         MySet result = new MySet();
 
-        for(String e : this) {
-            if(!result.contains(e)) result.add(e);
+        for (String e : this) {
+            if (!result.contains(e)) result.add(e);
         }
 
-        if(that != null && !that.isEmpty()) {
-            for(String e : that) {
-                if(!result.contains(e)) result.add(e);
+        if (that != null && !that.isEmpty()) {
+            for (String e : that) {
+                if (!result.contains(e)) result.add(e);
             }
         }
 
@@ -34,9 +34,9 @@ public class MySet extends HashSet<String> {
     public MySet intersection(MySet that) {
         MySet result = new MySet();
 
-        if(that != null && !that.isEmpty()) {
-            for(String e : this) {
-                if(that.contains(e) &&
+        if (that != null && !that.isEmpty()) {
+            for (String e : this) {
+                if (that.contains(e) &&
                         !result.contains(e)) result.add(e);
             }
         }
@@ -50,7 +50,7 @@ public class MySet extends HashSet<String> {
     public MySet difference(MySet that) {
         MySet result = new MySet();
 
-        if(that == null || that.isEmpty()) {
+        if (that == null || that.isEmpty()) {
             for (String e : this) {
                 if (!result.contains(e)) result.add(e);
             }
@@ -70,7 +70,7 @@ public class MySet extends HashSet<String> {
     public MySet exclusiveOr(MySet that) {
         MySet result = new MySet();
 
-        if(that == null || that.isEmpty()) {
+        if (that == null || that.isEmpty()) {
             for (String e : this) {
                 if (!result.contains(e)) result.add(e);
             }
@@ -91,19 +91,19 @@ public class MySet extends HashSet<String> {
 
     /**
      * @return a String representation of a MySet object
-     *
+     * <p>
      * <MySet{Delft,Rotterdam,Leiden}>
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        if(!(this == null && this.isEmpty())) {
+        if (!(this == null && this.isEmpty())) {
             for (String e : this) {
                 sb.append(e + ",");
             }
         }
 
-        sb.deleteCharAt(sb.length()-1);
+        sb.deleteCharAt(sb.length() - 1);
 
         return "<MySet{" + sb + "}>";
     }

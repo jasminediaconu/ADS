@@ -35,18 +35,16 @@ abstract class HashTable {
     /**
      * Constructs a new HashTable.
      *
-     * @param capacity
-     *     to be used as capacity of the table.
-     * @throws IllegalArgumentException
-     *     if the input capacity is invalid.
+     * @param capacity to be used as capacity of the table.
+     * @throws IllegalArgumentException if the input capacity is invalid.
      */
     @SuppressWarnings("unchecked")
     public HashTable(int capacity) {
-        if(capacity < 1) throw new IllegalArgumentException();
+        if (capacity < 1) throw new IllegalArgumentException();
 
         myTable = new LinkedList[capacity];
 
-        for(int i = 0; i < capacity; i++) {
+        for (int i = 0; i < capacity; i++) {
             myTable[i] = new LinkedList<>();
         }
     }
@@ -54,10 +52,8 @@ abstract class HashTable {
     /**
      * Add a key value pair to the HashTable.
      *
-     * @param key
-     *     to identify the value.
-     * @param value
-     *     that is identified by the key.
+     * @param key   to identify the value.
+     * @param value that is identified by the key.
      */
     public void put(String key, Integer value) {
         int hashed = hash(key);
@@ -68,8 +64,7 @@ abstract class HashTable {
     }
 
     /**
-     * @param key
-     *     to look for in the HashTable.
+     * @param key to look for in the HashTable.
      * @return true iff the key is in the HashTable.
      */
     public boolean containsKey(String key) {
@@ -86,8 +81,7 @@ abstract class HashTable {
     /**
      * Get a value from the HashTable.
      *
-     * @param key
-     *     that identifies the value.
+     * @param key that identifies the value.
      * @return the value associated with the key or `null` if the key is not in the HashTable.
      */
     public Integer get(String key) {
@@ -96,7 +90,7 @@ abstract class HashTable {
         int value = 0;
         boolean flag = false;
 
-        if(myTable[hashed] != null) {
+        if (myTable[hashed] != null) {
             for (Entry e : myTable[hashed]) {
                 if (e.getKey().equals(key))
                     flag = true;
@@ -117,8 +111,7 @@ abstract class HashTable {
     /**
      * Hashes a string/key.
      *
-     * @param item
-     *     to hash.
+     * @param item to hash.
      * @return the hashcode of the string, modulo the capacity of the HashTable.
      */
     public abstract int hash(String item);

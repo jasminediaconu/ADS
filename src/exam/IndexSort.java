@@ -3,16 +3,17 @@ package exam;
 /**
  * Sorts the indices of the array based on the corresponding value in alphabetical order.
  * Returns null if the input array is null.
- *
+ * <p>
  * Example: The array ["c","a","b"] will result in [1, 2, 0].
  */
 public class IndexSort {
 
     /**
      * InsertionSort implementation (CHANGES THE INPUT ARRAY) 90/100
+     *
      * @param arr array of Strings that stored the values
      * @return the indices in sorted order
-     * */
+     */
     public static int[] indexSort(String[] arr) {
         int res[] = new int[arr.length];
         if (arr == null || arr.length == 0) return res;
@@ -22,18 +23,18 @@ public class IndexSort {
         String tempLetter;
         int tempNum;
 
-        for(int i = 1; i < arr.length; i++) {
+        for (int i = 1; i < arr.length; i++) {
             int j = i;
 
-            while(j > 0 && arr[j].compareTo(arr[j-1]) < 0) {
+            while (j > 0 && arr[j].compareTo(arr[j - 1]) < 0) {
                 tempLetter = arr[j];
                 tempNum = res[j];
 
-                arr[j] = arr[j-1];
-                res[j] = res[j-1];
+                arr[j] = arr[j - 1];
+                res[j] = res[j - 1];
 
-                arr[j-1] = tempLetter;
-                res[j-1] = tempNum;
+                arr[j - 1] = tempLetter;
+                res[j - 1] = tempNum;
 
                 j--;
             }
@@ -45,22 +46,23 @@ public class IndexSort {
 
     /**
      * BubbleSort implementation 90/100
+     *
      * @param arr array of Strings that stored the values
      * @return the indices in sorted order
      */
     public static int[] bubbleSort(String[] arr) {
-        if(arr == null) return null;
+        if (arr == null) return null;
         int res[] = new int[arr.length];
-        if(arr.length == 0) return res;
+        if (arr.length == 0) return res;
 
         for (int i = 0; i < arr.length; i++) res[i] = i;
 
         String tempLetter;
         int tempNum;
 
-        for(int i = 0; i < arr.length; i++) {
-            for(int j = i+1; j < arr.length; j++) {
-                if(arr[i].compareTo(arr[j]) > 0) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i].compareTo(arr[j]) > 0) {
                     tempLetter = arr[i];
                     tempNum = res[i];
 
@@ -78,13 +80,14 @@ public class IndexSort {
 
     /**
      * InsertionSort implementation (WITHOUT CHANGING INPUT ARRAY) 100/100
+     *
      * @param arr array of Strings that stored the values
      * @return the indices in sorted order
      */
     public static int[] insertionSort(String[] arr) {
-        if(arr == null) return null;
+        if (arr == null) return null;
         int res[] = new int[arr.length];
-        if(arr.length == 0) return res;
+        if (arr.length == 0) return res;
 
         for (int i = 0; i < arr.length; i++) res[i] = i;
 
@@ -107,26 +110,27 @@ public class IndexSort {
 
     /**
      * SelectionSort implementation 90/100
+     *
      * @param arr array of Strings that stored the values
      * @return the indices in sorted order
      */
     public static int[] selectionSort(String[] arr) {
-        if(arr == null) return null;
+        if (arr == null) return null;
         int res[] = new int[arr.length];
-        if(arr.length == 0) return res;
+        if (arr.length == 0) return res;
 
         for (int i = 0; i < arr.length; i++) res[i] = i;
 
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             String currentMin = arr[i];
             int min = i;
-            for(int j = i; j < arr.length; j++) {
-                if(arr[j].compareTo(currentMin) < 0) {
+            for (int j = i; j < arr.length; j++) {
+                if (arr[j].compareTo(currentMin) < 0) {
                     currentMin = arr[j];
                     min = j;
                 }
             }
-            if(min != i) {
+            if (min != i) {
                 String tempLetter = arr[i];
                 int tempNum = res[i];
 
@@ -140,15 +144,17 @@ public class IndexSort {
 
         return res;
     }
+
     /**
      * QuickSort implementation 90/100
+     *
      * @param arr array of Strings that stored the values
      * @return the indices in sorted order
      */
     public static int[] quickSort(String[] arr) {
-        if(arr == null) return null;
+        if (arr == null) return null;
         int res[] = new int[arr.length];
-        if(arr.length == 0) return res;
+        if (arr.length == 0) return res;
 
         for (int i = 0; i < arr.length; i++) res[i] = i;
 
@@ -158,8 +164,8 @@ public class IndexSort {
     public static int[] quickSort(String[] a, int[] index, int left, int right) {
         if (right <= left) return index;
         int i = partition(a, index, left, right);
-        quickSort(a, index, left, i-1);
-        quickSort(a, index, i+1, right);
+        quickSort(a, index, left, i - 1);
+        quickSort(a, index, i + 1, right);
 
         return index;
     }
@@ -191,13 +197,14 @@ public class IndexSort {
 
     /**
      * MergeSort implementation 90/100
+     *
      * @param arr array of Strings that stored the values
      * @return the indices in sorted order
      */
     public static int[] mergeSort(String[] arr) {
-        if(arr == null) return null;
+        if (arr == null) return null;
         int res[] = new int[arr.length];
-        if(arr.length == 0) return res;
+        if (arr.length == 0) return res;
 
         int[] scratch = new int[arr.length];
 
@@ -224,20 +231,20 @@ public class IndexSort {
         int n = right - left + 1;
 
         while (j <= right && k <= r) {
-            if(arr[res[j]].compareTo(arr[res[k]]) <= 0) scratch[i++] = res[j++];
+            if (arr[res[j]].compareTo(arr[res[k]]) <= 0) scratch[i++] = res[j++];
             else scratch[i++] = res[k++];
         }
 
-        while(j <= right)
+        while (j <= right)
             scratch[i++] = res[j++];
 
-        while(k <= r)
+        while (k <= r)
             scratch[i++] = res[k++];
 
-        for(int a = left; a <= right; a++)
+        for (int a = left; a <= right; a++)
             res[a] = scratch[a - left];
 
-        for(int b = l; b <= r; b++)
+        for (int b = l; b <= r; b++)
             res[b] = scratch[b - l + n];
     }
 }

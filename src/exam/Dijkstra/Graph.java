@@ -47,8 +47,8 @@ public class Graph {
     /**
      * Adds an edge between vertex u and v with the given weight.
      *
-     * @param u First vertex.
-     * @param v Second vertex.
+     * @param u      First vertex.
+     * @param v      Second vertex.
      * @param weight Weight of the edge between a and b.
      */
     public void addEdge(Vertex u, Vertex v, int weight) {
@@ -59,8 +59,8 @@ public class Graph {
     /**
      * Adds an edge between the vertices with IDs u and v with the given weight.
      *
-     * @param u ID of the first vertex.
-     * @param v ID of the second vertex.
+     * @param u      ID of the first vertex.
+     * @param v      ID of the second vertex.
      * @param weight Weight of the edge between a and b.
      * @throws IllegalArgumentException if no vertex with the given ID is in the graph.
      */

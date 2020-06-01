@@ -10,8 +10,8 @@ public class DijkstraTest {
     /**
      * Tests the following graph with all edges having weight 1
      * 1 - 0 - 3
-     *     |   |
-     *     2 - 4
+     * |   |
+     * 2 - 4
      */
     @Test
     public void testUnweighted() {
@@ -37,7 +37,7 @@ public class DijkstraTest {
      * |    \  |
      * |     \ |
      * 2  ---  4
-     *
+     * <p>
      * The weights are as follows:
      * 0 - 1: 1
      * 1 - 3: 6

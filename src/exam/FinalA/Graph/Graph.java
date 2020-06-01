@@ -1,4 +1,4 @@
-package exam.FinalA;
+package exam.FinalA.Graph;
 
 import java.util.*;
 
