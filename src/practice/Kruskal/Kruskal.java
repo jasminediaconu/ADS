@@ -12,14 +12,21 @@ public class Kruskal {
     public static int shortestPath(Graph g) {
         if(g == null) return -1;
 
+        Comparator<Edge> comparator = new Comparator<Edge>() {
+            @Override
+            public int compare(Edge o1, Edge o2) {
+                if(o1.getWeight() < o2.getWeight()) return -1;
+                if(o1.getWeight() > o2.getWeight()) return 1;
+
+                return 0;
+            }
+        };
+        
         // Get all edges and sort them in ascendant order
-        ArrayList<Edge> edges = g.getAllEdges();
-        Collections.sort(edges);
+        Queue<Edge> pq = new PriorityQueue<>(g.getAllEdges().size(), comparator);
 
-        Queue<Edge> queue = new LinkedList<>();
-
-        for (Edge e: edges) {
-            queue.add(e);
+        for (Edge e: g.getAllEdges()) {
+            pq.add(e);
         }
 
         // The max allowed number of edges
@@ -31,8 +38,8 @@ public class Kruskal {
 
         DisjointSet disjointSet = new DisjointSet(g.getAllVertices());
 
-        while(!queue.isEmpty()) {
-            Edge e = queue.remove();
+        while(!pq.isEmpty()) {
+            Edge e = pq.remove();
 
             if(initCount == finalCount) return result;
 
@@ -43,7 +50,7 @@ public class Kruskal {
             }
         }
 
-        return -1;
+        return result;
     }
 
     public static boolean hasCycle(Vertex source, Vertex destination, DisjointSet disjointSet) {

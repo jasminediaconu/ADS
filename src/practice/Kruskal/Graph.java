@@ -33,7 +33,7 @@ public class Graph {
         return new ArrayList<>(this.vertices.values());
     }
 
-    public ArrayList<Edge> getAllEdges() {
+    public Collection<Edge> getAllEdges() {
         return new ArrayList<>(this.edges);
     }
 
