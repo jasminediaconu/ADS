@@ -10,7 +10,8 @@ public class KruskalTest {
 
     @Test
     public void testDisjoint() {
-        Graph g = new Graph(2);;
+        Graph g = new Graph(2);
+        ;
         g.addEdge(0, 0, 1);
         assertEquals(0, Kruskal.shortestPath(g));
     }
@@ -62,12 +63,12 @@ public class KruskalTest {
 
     /**
      * Tests the following graph:
-     *       B - C - D
-     *    / |    |    \
-     *   /  |   I      E
-     *  A  | / |     /
-     *   \ H - G - F
-
+     * B - C - D
+     * / |    |    \
+     * /  |   I      E
+     * A  | / |     /
+     * \ H - G - F
+     *
      * <p>
      * The weights are as follows:
      * H - G: 1
@@ -112,7 +113,7 @@ public class KruskalTest {
         g.addEdge(0, 1, 10);
         g.addEdge(0, 2, 6);
         g.addEdge(0, 3, 5);
-        g.addEdge(2, 3,4);
+        g.addEdge(2, 3, 4);
         g.addEdge(3, 1, 15);
 
         assertEquals(19, Kruskal.shortestPath(g));

@@ -6,48 +6,7 @@ import java.util.Map;
 
 public class AdaptablePQ {
 
-    private static class PQEntry implements Comparable<PQEntry> {
-
-        private int key;
-
-        private Vertex value;
-
-        private int index;
-
-        public PQEntry(int key, Vertex value, int index) {
-            this.key = key;
-            this.value = value;
-            this.index = index;
-        }
-
-        protected int getKey() {
-            return key;
-        }
-
-        protected void setKey(int key) {
-            this.key = key;
-        }
-
-        protected Vertex getValue() {
-            return value;
-        }
-
-        protected int getIndex() {
-            return index;
-        }
-
-        protected void setIndex(int index) {
-            this.index = index;
-        }
-
-        @Override
-        public int compareTo(PQEntry o) {
-            return Integer.compare(this.getKey(), o.getKey());
-        }
-    }
-
     private ArrayList<PQEntry> heap = new ArrayList<>();
-
     private Map<Vertex, PQEntry> entries = new HashMap<>();
 
     private int parent(int j) {
@@ -145,8 +104,6 @@ public class AdaptablePQ {
         entries.put(vertex, newest);
     }
 
-    // ------- PUBLIC METHODS -----------------------------------------------------
-
     /**
      * Returns the number of items in the priority queue.
      *
@@ -155,6 +112,8 @@ public class AdaptablePQ {
     public int size() {
         return heap.size();
     }
+
+    // ------- PUBLIC METHODS -----------------------------------------------------
 
     /**
      * Replaces the key of a given vertex and reorders it in the PriorityQueue.
@@ -196,5 +155,45 @@ public class AdaptablePQ {
      */
     public boolean isEmpty() {
         return heap.isEmpty();
+    }
+
+    private static class PQEntry implements Comparable<PQEntry> {
+
+        private int key;
+
+        private Vertex value;
+
+        private int index;
+
+        public PQEntry(int key, Vertex value, int index) {
+            this.key = key;
+            this.value = value;
+            this.index = index;
+        }
+
+        protected int getKey() {
+            return key;
+        }
+
+        protected void setKey(int key) {
+            this.key = key;
+        }
+
+        protected Vertex getValue() {
+            return value;
+        }
+
+        protected int getIndex() {
+            return index;
+        }
+
+        protected void setIndex(int index) {
+            this.index = index;
+        }
+
+        @Override
+        public int compareTo(PQEntry o) {
+            return Integer.compare(this.getKey(), o.getKey());
+        }
     }
 }
