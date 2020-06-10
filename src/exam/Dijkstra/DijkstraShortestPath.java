@@ -28,8 +28,6 @@ public class DijkstraShortestPath {
         while (iterator.hasNext()) {
             Vertex v = (Vertex) iterator.next();
             if (v == a) pq.insertOrReplace(v, 0);
-            else pq.insertOrReplace(v, Integer.MAX_VALUE);
-
             iterator.remove();
         }
 

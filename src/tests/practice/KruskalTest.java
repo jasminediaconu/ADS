@@ -11,7 +11,7 @@ public class KruskalTest {
     @Test
     public void testDisjoint() {
         Graph g = new Graph(2);
-        ;
+
         g.addEdge(0, 0, 1);
         assertEquals(0, Kruskal.shortestPath(g));
     }

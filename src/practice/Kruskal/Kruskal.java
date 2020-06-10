@@ -36,7 +36,10 @@ public class Kruskal {
         // Weight of the minimum spanning tree
         int result = 0;
 
-        DisjointSet disjointSet = new DisjointSet(g.getAllVertices());
+        HashMap<Vertex, Vertex> disjointSet = new HashMap<Vertex, Vertex>();
+
+        for (Vertex v : g.getAllVertices())
+            disjointSet.put(v, v);
 
         while (initCount != finalCount && !pq.isEmpty()) {
             Edge e = pq.remove();
@@ -51,14 +54,36 @@ public class Kruskal {
         return result;
     }
 
-    public static boolean hasCycle(Vertex source, Vertex destination, DisjointSet disjointSet) {
-        Vertex root = disjointSet.find(source);
-        Vertex root2 = disjointSet.find(destination);
+    /**
+     * Checks if the graph has cycles.
+     * @param source
+     * @param destination
+     * @param disjointSet
+     * @return
+     */
+    public static boolean hasCycle(Vertex source, Vertex destination, HashMap<Vertex, Vertex> disjointSet) {
+        Vertex root = find(disjointSet, source);
+        Vertex root2 = find(disjointSet, destination);
 
         if (root == root2) return true;
 
-        else disjointSet.union(source, destination);
+        else union(disjointSet, source, destination);
 
         return false;
+    }
+
+    public static Vertex find(HashMap<Vertex, Vertex> parent, Vertex v) {
+        // Vertex is the root
+        if (parent.get(v) == v) return v;
+
+        // recursive call
+        return find(parent, parent.get(v));
+    }
+
+    public static void union(HashMap<Vertex, Vertex> parent, Vertex a, Vertex b) {
+        Vertex x = find(parent, a);
+        Vertex y = find(parent, b);
+
+        parent.put(x, y);
     }
 }
