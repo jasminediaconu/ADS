@@ -1,11 +1,12 @@
 package exam.FinalA;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * In this assignment, you are expected to implement the MSD (most-significant-digit-first)
- * radix sort algorithm to sort a sequence of words in non-decreasing alphabetic order.
+ * index sort algorithm to sort a sequence of words in non-decreasing alphabetic order.
  *
  * For example, if the content of the input array is [pig, cat, parrot, monkey],
  * the content of the output array should be [cat, monkey, parrot, pig].
@@ -20,7 +21,7 @@ import java.util.List;
  */
 public class RadixSort {
     /**
-     * Sorts a list of words using MSD radix sort.
+     * Sorts a list of words using MSD index sort.
      *
      * @param words
      *     The list of words to sort.
@@ -37,32 +38,32 @@ public class RadixSort {
     }
 
     public static List<String> sort(List<String> words, int index) {
-        LinkedList<String> result = new LinkedList<>();
+        // 1. Create new ArrayList
+        List<String> sorted = new ArrayList<String>();
 
+        // 3. Buckets for each letter from a to z
         LinkedList<String>[] buckets = new LinkedList[26];
 
-        // 1. Initialize the array
-        for(int i = 0; i < 26; i++) {
-            buckets[i] = new LinkedList();
+        // 2. Start checking elements inside the list to sort
+        for(String el : words) {
+            if(el.length() <= index) {
+                sorted.add(el);
+                continue;
+            }
+
+            // 3. Find bucket index
+            int i = (int) el.charAt(index) - 'a';
+            if(buckets[i] == null) buckets[i] = new LinkedList<>();
+
+            buckets[i].add(el);
         }
 
-        // 2. Check the length of the string
-        for(String word : words) {
-            if(word.length() >= index) result.add(word);
+        if(sorted.size() != words.size()) {
+            for (LinkedList<String> list : buckets) {
+                if (list == null) continue;
+                sorted.addAll(sort(list, index + 1));
+            }
         }
-
-        // 3. Add the string in the corresponding bucket
-        for(int i = 0; i < words.size(); i++) {
-            int a = words.get(i).charAt(index) - 'a';
-            buckets[a].add(result.get(i));
-        }
-
-        // 4. Recursively sort each bucket
-        for(LinkedList bucket : buckets) {
-            if(bucket == null || bucket.size() < 2) continue;
-            sort(bucket, index+1);
-        }
-
-        return result;
+        return sorted;
     }
 }
